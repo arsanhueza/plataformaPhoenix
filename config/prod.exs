@@ -24,7 +24,7 @@ secret_key_base:  Map.fetch!(System.get_env(),  "SECRET_KEY_BASE")
 # Database configuration
 config :platform, Platform.Repo,
 adapter: Ecto.Adapters.Postgres,
-url:  System.get_env("postgres://qogdjocdwzxcul:59ec8393fd4b61cc1f65cb8a4d9539af05fadfe276726c8c404d1acd6ef6188b@ec2-23-23-241-119.compute-1.amazonaws.com:5432/d817sn70acic15"),
+url:  System.get_env("DATABASE_URL"),
 pool_size:  String.to_integer(System.get_env("POOL_SIZE")  ||  "10"),
 ssl: true
 
