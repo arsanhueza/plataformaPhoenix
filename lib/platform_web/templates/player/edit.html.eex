@@ -1,5 +1,30 @@
-<h2>Edit Player</h2>
+<h1>Editar Usuario</h1>
 
-<%= render "form.html", Map.put(assigns, :action, player_path(@conn, :update, @player)) %>
+<%=  form_for  @changeset, player_path(@conn,  :update,  @player),  fn  f  ->  %>
+<%=  if  @changeset.action  do  %>
+<div class="alerta alerta-danger">
+<p>Algo salió mal, revisa bien cual puede ser el error</p>
+</div>
+<% end %>
 
-<span><%= link "Back", to: player_path(@conn, :index) %></span>
+<%= label f, :display_name %>
+<%= text_input f, :display_name %>
+<%= error_tag f, :display_name %>
+
+<%= label f, :username %>
+<%= text_input f, :username %>
+<%= error_tag f, :username %>
+
+<%= label f, :password %>
+<%= password_input f, :password %>
+<%= error_tag f, :password %>
+
+<div>
+<%= submit "Guardar" %>
+</div> 	
+
+<% end %>
+
+
+
+<span><%= link "Atrás", to: player_path(@conn, :index) %></span>
